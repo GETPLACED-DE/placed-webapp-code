@@ -4,6 +4,14 @@ import SearchBar from '@/components/ui/searchbar';
 import { Switch } from '@/components/ui/switch';
 import { getDictionary } from './dictionaries';
 
+// Generate static params for all supported languages
+export async function generateStaticParams() {
+  return [
+    { lang: 'en' },
+    { lang: 'de' },
+  ];
+}
+
 type PageProps = {
   params: Promise<{ lang: 'en' | 'de' }>
 };

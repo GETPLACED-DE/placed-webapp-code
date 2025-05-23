@@ -2,6 +2,14 @@ import React from 'react';
 import { LoginForm } from '@/features/auth/LoginForm';
 import { getDictionary } from '../dictionaries';
 
+// Generate static params for all supported languages
+export async function generateStaticParams() {
+  return [
+    { lang: 'en' },
+    { lang: 'de' },
+  ];
+}
+
 type PageProps = {
   params: Promise<{ lang: 'en' | 'de' }>
 };
