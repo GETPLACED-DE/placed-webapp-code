@@ -2,11 +2,11 @@ import React from 'react';
 import { EmailCaptureForm } from '@/features/demo/EmailCaptureForm';
 import { getDictionary } from '../dictionaries';
 
-interface DemoPageProps {
-  params: { lang: 'en' | 'de' };
-}
+type PageProps = {
+  params: Promise<{ lang: 'en' | 'de' }>
+};
 
-export default async function DemoPage({ params }: DemoPageProps) {
+export default async function DemoPage({ params }: PageProps) {
   const awaitedParams = await params;
   const dict = await getDictionary(awaitedParams.lang);
 

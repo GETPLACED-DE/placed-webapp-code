@@ -42,8 +42,7 @@ The application follows a modular, feature-first architecture:
 1. **Clone the repository**
 2. **Install dependencies**
    ```bash
-   python3 -m pip install --upgrade pip
-   npm install
+   npm install package.json
    ```
 3. **Configure environment variables**
    - Copy `.env.example` to `.env.local` and fill in your configuration values.

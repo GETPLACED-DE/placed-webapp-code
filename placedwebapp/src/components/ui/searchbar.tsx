@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-export default function SearchBar({ dict }: { dict: any }) {
+export default function SearchBar({ dict }: { dict: { searchPlaceholder: string; search: string; dropResume: string } }) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isDragging, setIsDragging] = useState(false);
 

@@ -4,11 +4,11 @@ import SearchBar from '@/components/ui/searchbar';
 import { Switch } from '@/components/ui/switch';
 import { getDictionary } from './dictionaries';
 
-interface LandingPageProps {
-  params: { lang: 'en' | 'de' };
-}
+type PageProps = {
+  params: Promise<{ lang: 'en' | 'de' }>
+};
 
-export default async function LandingPage({ params }: LandingPageProps) {
+export default async function LandingPage({ params }: PageProps) {
   const awaitedParams = await params;
   const dict = await getDictionary(awaitedParams.lang);
 

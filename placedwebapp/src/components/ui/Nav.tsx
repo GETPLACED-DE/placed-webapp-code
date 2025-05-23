@@ -7,7 +7,15 @@ import Logo from '@/components/ui/Logo';
 import { Menu, X } from 'lucide-react';
 
 interface NavProps {
-  dict: Record<string, any>;
+  dict: {
+    about: string;
+    pricing: string;
+    faq: string;
+    tryForFree: string;
+    login: {
+      logIn: string;
+    };
+  };
 }
 
 const Nav: React.FC<NavProps> = ({ dict }) => {

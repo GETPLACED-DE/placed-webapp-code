@@ -2,11 +2,11 @@ import React from 'react';
 import { LoginForm } from '@/features/auth/LoginForm';
 import { getDictionary } from '../dictionaries';
 
-interface LoginPageProps {
-  params: { lang: 'en' | 'de' };
-}
+type PageProps = {
+  params: Promise<{ lang: 'en' | 'de' }>
+};
 
-export default async function LoginPage({ params }: LoginPageProps) {
+export default async function LoginPage({ params }: PageProps) {
   const awaitedParams = await params;
   const dict = await getDictionary(awaitedParams.lang);
 
