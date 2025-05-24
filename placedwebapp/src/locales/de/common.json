@@ -1,0 +1,34 @@
+{
+    "title": "Kandidaten platzieren. Abschlüsse schnell erzielen.",
+    "description": "PLACED verwendet fortschrittliche KI, um Ihre Kandidaten mit aktuellen Stellenangeboten abzugleichen – über alle wichtigen Quellen hinweg. Schluss mit der Suche. Jetzt platzieren.",
+    "searchPlaceholder": "Jobtitel suchen oder Lebenslauf ablegen...",
+    "search": "Suchen",
+    "onlyPaid": "Nur bezahlte Anzeigen",
+    "excludeHeadhunter": "Headhunter-Angebote ausschließen",
+    "dropResume": "Lebenslauf zum automatischen Abgleich ablegen",
+    "login": {
+      "signIn": "Melden Sie sich bei Ihrem Konto an",
+      "email": "E-Mail-Adresse",
+      "password": "Passwort",
+      "logIn": "Anmelden",
+      "forgotPassword": "Passwort vergessen?",
+      "termsText": "Mit der Anmeldung stimmen Sie unseren",
+      "termsLink": "Nutzungsbedingungen zu",
+      "emailPlaceholder": "ihre@email.com"
+    },
+    "demo": {
+      "title": "E-Mail eingeben, um die Plattform zu testen",
+      "companyName": "Firmenname",
+      "emailAddress": "E-Mail-Adresse",
+      "tryForFree": "Kostenlos testen",
+      "companyPlaceholder": "ACME GmbH",
+      "emailPlaceholder": "ihre@firmen-email.de",
+      "successTitle": "Vielen Dank!",
+      "successMessage": "Wir haben Ihnen eine E-Mail mit Anweisungen zum Zugriff auf die Plattform gesendet.",
+      "errorMessage": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+    },
+    "about": "Über uns",
+    "pricing": "Preise",
+    "faq": "FAQ",
+    "tryForFree": "Kostenlos testen"
+  } 
