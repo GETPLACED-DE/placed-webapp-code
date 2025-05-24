@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import { useToast } from '@/context/ToastProvider';
+import { useLoading } from '@/context/LoadingProvider';
 
 interface DemoSignupData {
   company: string;
@@ -8,12 +10,13 @@ interface DemoSignupData {
 }
 
 export function useDemo() {
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  const { success: showSuccess, error: showError } = useToast();
+  const { setLoading } = useLoading();
 
   const signupForDemo = async (data: DemoSignupData) => {
-    setIsLoading(true);
+    setLoading(true, 'Signing up for demo...');
     setError(null);
     setSuccess(false);
 
@@ -23,20 +26,30 @@ export function useDemo() {
       // const response = await axios.post('/api/demo-signup', data);
       await new Promise((resolve) => setTimeout(resolve, 1000));
       
-      console.log('Demo signup data:', data);
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Demo signup data:', data);
+      }
       setSuccess(true);
+      showSuccess(
+        'Demo signup successful!', 
+        'We will contact you soon to schedule your demo.'
+      );
       return { success: true };
     } catch (err) {
-      console.error('Demo signup error:', err);
-      setError('An error occurred while signing up. Please try again.');
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Demo signup error:', err);
+      }
+      const errorMessage = 'An error occurred while signing up. Please try again.';
+      setError(errorMessage);
+      showError('Demo signup failed', errorMessage);
       return { success: false, error: 'Signup failed' };
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
   return {
-    isLoading,
+    isLoading: false, // Now managed by LoadingProvider
     error,
     success,
     signupForDemo,

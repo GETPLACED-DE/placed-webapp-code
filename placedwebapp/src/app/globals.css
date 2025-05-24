@@ -3,120 +3,360 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* FFF Acid Grotesk Font Family - Optimized Loading */
+@font-face {
+  font-family: 'FFF Acid Grotesk';
+  src: url('/fonts/acid-grotesk/FFF-AcidGrotesk-Regular.woff2') format('woff2'),
+       url('/fonts/acid-grotesk/FFF-AcidGrotesk-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  /* Font metrics for better fallback matching */
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'FFF Acid Grotesk';
+  src: url('/fonts/acid-grotesk/FFF-AcidGrotesk-Medium.woff2') format('woff2'),
+       url('/fonts/acid-grotesk/FFF-AcidGrotesk-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  /* Font metrics for better fallback matching */
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'FFF Acid Grotesk';
+  src: url('/fonts/acid-grotesk/FFF-AcidGrotesk-Bold.woff2') format('woff2'),
+       url('/fonts/acid-grotesk/FFF-AcidGrotesk-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  /* Font metrics for better fallback matching */
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+/* Fallback font optimization for better visual matching */
+@font-face {
+  font-family: 'FFF Acid Grotesk Fallback';
+  src: local('Helvetica Neue'), local('Helvetica'), local('Arial');
+  font-display: swap;
+  /* Adjust metrics to closely match FFF Acid Grotesk */
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  size-adjust: 100%;
+}
+
+:root {
+  /* Brand Colors */
+  --brand-navy: #000034;
+  --brand-lime: #d1fae5;
+  --brand-lime-dark: #a3f3c3;
+  
+  /* Primary Colors */
+  --primary: #000034;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary Colors */
+  --secondary: #d1fae5;
+  --secondary-foreground: #1f2937;
+  
+  /* Background Colors */
+  --background: #fcfcfd;
+  --background-muted: #f0f2f5;
+  --background-subtle: #f8fafc;
+  
+  /* Surface Colors */
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --surface-overlay: rgba(0, 0, 0, 0.5);
+  
+  /* Text Colors */
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --text-inverse: #ffffff;
+  
+  /* Border Colors */
+  --border: #e5e7eb;
+  --border-light: #f3f4f6;
+  --border-medium: #d1d5db;
+  --border-dark: #9ca3af;
+  
+  /* Semantic Colors */
+  --success: #22c55e;
+  --success-foreground: #ffffff;
+  --warning: #f59e0b;
+  --warning-foreground: #ffffff;
+  --error: #ef4444;
+  --error-foreground: #ffffff;
+  
+  /* Modern Enterprise Colors */
+  --accent: #646cff;
+  --accent-foreground: #ffffff;
+  --accent-light: #8b92ff;
+  --accent-dark: #4338ca;
+  
+  /* Interactive Colors */
+  --interactive: #16a34a;
+  --interactive-foreground: #ffffff;
+  --interactive-hover: #15803d;
+  --interactive-muted: #9ca3af;
+  --interactive-muted-hover: #6b7280;
+  
+  /* CTA Colors  */
+  --cta: #E4FD57;
+  --cta-foreground: #101827;
+  --cta-hover: #A7C400;
+  --cta-light: #E4FD90;
+  --cta-dark: #E4FD10;
+  
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  
+  /* Component-specific CSS variables for shadcn/ui compatibility */
+  --foreground: var(--text-primary);
+  --card: var(--surface);
+  --card-foreground: var(--text-primary);
+  --popover: var(--surface);
+  --popover-foreground: var(--text-primary);
+  --muted: var(--background-muted);
+  --muted-foreground: var(--text-muted);
+  --accent: var(--background-subtle);
+  --accent-foreground: var(--text-primary);
+  --destructive: var(--error);
+  --destructive-foreground: var(--error-foreground);
+  --input: var(--border);
+  --ring: var(--border-dark);
+  
+  /* Border Radius */
+  --radius: 0.5rem;
+  
+  /* Chart Colors */
+  --chart-1: #646cff;
+  --chart-2: #60a5fa;
+  --chart-3: #34d399;
+  --chart-4: #fbbf24;
+  --chart-5: #f87171;
+}
+
+.dark {
+  /* Dark mode overrides */
+  --background: #0a0a0a;
+  --background-muted: #171717;
+  --background-subtle: #262626;
+  
+  --surface: #171717;
+  --surface-elevated: #262626;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #a3a3a3;
+  --text-muted: #737373;
+  --text-inverse: #171717;
+  
+  --border: #404040;
+  --border-light: #262626;
+  --border-medium: #525252;
+  --border-dark: #737373;
+  
+  /* Update shadcn/ui variables for dark mode */
+  --foreground: var(--text-primary);
+  --card: var(--surface);
+  --card-foreground: var(--text-primary);
+  --popover: var(--surface);
+  --popover-foreground: var(--text-primary);
+  --muted: var(--background-muted);
+  --muted-foreground: var(--text-muted);
+  --accent: var(--background-subtle);
+  --accent-foreground: var(--text-primary);
+}
+
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
+  /* Map CSS variables to Tailwind tokens */
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-lime: var(--brand-lime);
+  --color-brand-lime-dark: var(--brand-lime-dark);
+  
+  /* Font families - optimized fallback stacks */
+  --font-display: 'FFF Acid Grotesk', 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'FFF Acid Grotesk', 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-grotesk: 'FFF Acid Grotesk', 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-inter: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: JetBrains Mono, Monaco, Consolas, ui-monospace, monospace;
+  
   --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  
+  --color-background: var(--background);
+  --color-background-muted: var(--background-muted);
+  --color-background-subtle: var(--background-subtle);
+  
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-overlay: var(--surface-overlay);
+  
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-inverse: var(--text-inverse);
+  
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
+  --color-border-medium: var(--border-medium);
+  --color-border-dark: var(--border-dark);
+  
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-error: var(--error);
+  --color-error-foreground: var(--error-foreground);
+  
+  /* Modern Enterprise Colors */
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-light: var(--accent-light);
+  --color-accent-dark: var(--accent-dark);
+  
+  /* Interactive Colors */
+  --color-interactive: var(--interactive);
+  --color-interactive-foreground: var(--interactive-foreground);
+  --color-interactive-hover: var(--interactive-hover);
+  --color-interactive-muted: var(--interactive-muted);
+  --color-interactive-muted-hover: var(--interactive-muted-hover);
+  
+  /* CTA Colors */
+  --color-cta: var(--cta);
+  --color-cta-foreground: var(--cta-foreground);
+  --color-cta-hover: var(--cta-hover);
+  --color-cta-light: var(--cta-light);
+  --color-cta-dark: var(--cta-dark);
+  
+  /* Shadcn/ui compatibility */
+  --color-foreground: var(--foreground);
   --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  /* Border radius tokens */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-}
-
-:root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  
+  /* Chart colors */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-text-primary font-grotesk;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    /* Smooth font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-grotesk font-semibold;
+    /* Smooth transition when fonts load */
+    transition: font-family 0.3s ease-in-out;
+  }
+  
+  /* Font loading optimization */
+  .font-loading {
+    font-family: 'FFF Acid Grotesk Fallback', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  
+  .font-loaded {
+    font-family: 'FFF Acid Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+}
+
+/* Additional utility classes for consistent design */
+@layer utilities {
+  .text-brand-navy {
+    color: var(--brand-navy);
+  }
+  
+  .text-brand-lime {
+    color: var(--brand-lime);
+  }
+  
+  .bg-brand-navy {
+    background-color: var(--brand-navy);
+  }
+  
+  .bg-brand-lime {
+    background-color: var(--brand-lime);
+  }
+  
+  .bg-brand-lime-dark {
+    background-color: var(--brand-lime-dark);
+  }
+
+  /* Font loading optimization utilities */
+  .font-loading-skeleton {
+    @apply animate-pulse;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  .font-smooth-transition {
+    transition: font-family 0.2s ease-in-out, opacity 0.1s ease-in-out;
+  }
+
+  /* Critical font loading indicator */
+  .font-loading-critical {
+    visibility: hidden;
+    animation: fadeIn 0.1s ease-in-out 0.1s forwards;
+  }
+
+  .font-loaded-critical {
+    visibility: visible;
+    animation: none;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @keyframes fadeIn {
+    from { visibility: hidden; opacity: 0; }
+    to { visibility: visible; opacity: 1; }
   }
 }

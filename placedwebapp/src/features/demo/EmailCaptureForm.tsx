@@ -54,12 +54,12 @@ export function EmailCaptureForm({ dict }: EmailCaptureFormProps) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full max-w-md mx-auto p-6">
+    <div className="flex flex-col items-center justify-center w-full max-w-md mx-auto ">
       <motion.div 
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
-        className="w-full bg-white rounded-lg shadow-lg p-8"
+        className="w-full bg-surface rounded-lg shadow-card p-8"
       >
         <div className="flex justify-center mb-6">
           <Logo />
@@ -67,7 +67,7 @@ export function EmailCaptureForm({ dict }: EmailCaptureFormProps) {
         
         {!isSuccess ? (
           <>
-            <h1 className="text-2xl font-bold text-center text-gray-900 mb-6">
+            <h1 className="text-2xl font-grotesk font-medium text-center text-text-primary mb-6">
               {dict.title}
             </h1>
             
@@ -75,7 +75,7 @@ export function EmailCaptureForm({ dict }: EmailCaptureFormProps) {
               <motion.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="bg-red-50 text-red-600 p-3 rounded-md mb-4 text-sm"
+                className="bg-error/10 text-error p-3 rounded-md mb-4 text-text-sm"
               >
                 {dict.errorMessage}
               </motion.div>
@@ -89,10 +89,10 @@ export function EmailCaptureForm({ dict }: EmailCaptureFormProps) {
                   type="text"
                   placeholder={dict.companyPlaceholder}
                   {...register('company')}
-                  className={errors.company ? 'border-red-500' : ''}
+                  className={errors.company ? 'border-error' : ''}
                 />
                 {errors.company && (
-                  <p className="text-red-500 text-xs mt-1">{errors.company.message}</p>
+                  <p className="text-error text-text-xs mt-1">{errors.company.message}</p>
                 )}
               </div>
               
@@ -103,21 +103,22 @@ export function EmailCaptureForm({ dict }: EmailCaptureFormProps) {
                   type="email"
                   placeholder={dict.emailPlaceholder}
                   {...register('email')}
-                  className={errors.email ? 'border-red-500' : ''}
+                  className={errors.email ? 'border-error' : ''}
                 />
                 {errors.email && (
-                  <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
+                  <p className="text-error text-text-xs mt-1">{errors.email.message}</p>
                 )}
               </div>
               
               <Button 
                 type="submit" 
-                className="w-full bg-[#000034] hover:bg-blue-900 text-white"
+                variant="default"
+                className="w-full"
                 disabled={isLoading}
               >
                 {isLoading ? (
                   <div className="flex items-center justify-center">
-                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-text-inverse" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
@@ -136,7 +137,7 @@ export function EmailCaptureForm({ dict }: EmailCaptureFormProps) {
             className="text-center py-6"
           >
             <svg 
-              className="w-16 h-16 text-green-500 mx-auto mb-4" 
+              className="w-16 h-16 text-success mx-auto mb-4" 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24" 
@@ -149,10 +150,10 @@ export function EmailCaptureForm({ dict }: EmailCaptureFormProps) {
                 d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            <h2 className="text-display-sm font-grotesk font-bold text-text-primary mb-2">
               {dict.successTitle}
             </h2>
-            <p className="text-gray-600">
+            <p className="text-text-secondary">
               {dict.successMessage}
             </p>
           </motion.div>

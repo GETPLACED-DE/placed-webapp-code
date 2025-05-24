@@ -28,9 +28,9 @@ export default function SearchBar({ dict }: { dict: { searchPlaceholder: string;
 
   return (
     <div
-      className={`w-full mx-auto bg-white rounded-xl shadow-sm flex flex-col sm:flex-row items-center 
-                  px-3 sm:px-4 py-3 sm:py-2 mb-4 border transition-all duration-200
-                  ${isDragging ? 'border-lime-400 bg-lime-50' : 'border-gray-100'}`}
+      className={`w-full mx-auto bg-surface rounded-xl shadow-card flex flex-col sm:flex-row items-center 
+                  px-3 sm:px-4 py-3 sm:py-2 mb-4 border transition-normal
+                  ${isDragging ? 'border-brand-lime bg-brand-lime/50' : 'border-border-light'}`}
       onDrop={handleDrop}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
@@ -39,7 +39,7 @@ export default function SearchBar({ dict }: { dict: { searchPlaceholder: string;
         <button
           type="button"
           aria-label="Attach resume"
-          className="mr-2 flex items-center justify-center text-gray-400 hover:text-primary focus:outline-none"
+          className="mr-2 flex items-center justify-center text-interactive-muted hover:text-primary focus:outline-none transition-fast"
           onClick={handleIconClick}
           tabIndex={0}
           style={{ border: 'none', background: 'none', padding: 0 }}
@@ -57,11 +57,12 @@ export default function SearchBar({ dict }: { dict: { searchPlaceholder: string;
         <Input
           type="text"
           placeholder={dict.searchPlaceholder}
-          className="flex-1 bg-transparent outline-none text-base border-none shadow-none focus:ring-0"
+          className="flex-1 bg-transparent outline-none text-text-md border-none shadow-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
         />
       </div>
       <Button
-        className="mt-2 sm:mt-0 ml-0 sm:ml-2 bg-lime-200 text-black font-semibold hover:bg-lime-300 rounded-full w-full sm:w-auto"
+        variant="cta"
+        className="mt-2 sm:mt-0 ml-0 sm:ml-2 font-semibold hover:bg-cta-hover rounded-full w-full sm:w-auto"
         onClick={() => {}}
       >
         {dict.search}
@@ -69,8 +70,8 @@ export default function SearchBar({ dict }: { dict: { searchPlaceholder: string;
       
       {/* Drop area hint - shows only when dragging */}
       {isDragging && (
-        <div className="absolute inset-0 bg-lime-50 bg-opacity-80 rounded-xl flex items-center justify-center pointer-events-none">
-          <p className="text-lime-700 font-medium">{dict.dropResume}</p>
+        <div className="absolute inset-0 bg-brand-lime/80 rounded-xl flex items-center justify-center pointer-events-none">
+          <p className="text-accent font-medium">{dict.dropResume}</p>
         </div>
       )}
     </div>
